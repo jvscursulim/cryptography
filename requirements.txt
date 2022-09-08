@@ -8,7 +8,7 @@ filelock==3.8.0
 iniconfig==1.1.1
 mypy-extensions==0.4.3
 nox==2022.8.7
-numpy==1.23.2
+numpy<=1.21.6
 packaging==21.3
 pathspec==0.10.1
 platformdirs==2.5.2
