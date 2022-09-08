@@ -28,6 +28,7 @@ class CaesarCipher:
         """
         if displacement >= 0:
             
+            word = word.lower()
             sign = (-1)**(int(decrypt_mode))
             char_idx_array = np.array([self.ALPHABET.index(char) for char in word])
             char_idx_array_after_displacement = (char_idx_array + sign*displacement)%len(self.ALPHABET)
@@ -43,7 +44,7 @@ class CaesarCipher:
             raise ValueError("Negative number! This function only accepts positive integer numbers as displacement!")
         
     def encrypt(self, word: str, displacement: int) -> str:
-        """Return a encrypted word. 
+        """Return an encrypted word. 
 
         Args:
             word (str): A word to be encrypted.
