@@ -35,8 +35,8 @@ jobs:
       - name: Running tests
         run: nox
       
-      # - name: Upload Coverage to Codecov
-      #   uses: codecov/codecov-action@v2
-      #   with:
-      #     fail_ci_if_error: true
-      #     token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
