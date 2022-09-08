@@ -24,7 +24,7 @@ class CaesarCipher:
         Returns:
             str: A encrypted/decrypted word.
         """
-        sign = -1**(int(decrypt_mode))
+        sign = (-1)**(int(decrypt_mode))
         char_idx_array = np.array([self.ALPHABET.index(char) for char in word])
         char_idx_array_after_displacement = (char_idx_array + sign*displacement)%len(self.ALPHABET)
         
