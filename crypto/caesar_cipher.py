@@ -1,3 +1,4 @@
+from __future__ import annotations
 import numpy as np
 
 class CaesarCipher:
@@ -5,10 +6,10 @@ class CaesarCipher:
     
     ALPHABET = "abcdefghijklmnopqrstuvwxyz"
     
-    def __init__(self) -> None:
+    def __init__(self) -> CaesarCipher:
         pass
     
-    def encrypt_or_decrypt(self, 
+    def _calculate_word(self, 
                            word: str, 
                            displacement: int, 
                            decrypt_mode: bool=False) -> str:
@@ -40,3 +41,31 @@ class CaesarCipher:
         else:
             
             raise ValueError("Negative number! This function only accepts positive integer numbers as displacement!")
+        
+    def encrypt(self, word: str, displacement: int) -> str:
+        """Return a encrypted word. 
+
+        Args:
+            word (str): A word to be encrypted.
+            displacement (int): A positive integer number that represents
+                                the displacement that will be applied in the 
+                                alphabet.
+
+        Returns:
+            str: A encrypted word.
+        """
+        return self._calculate_word(word=word, displacement=displacement)
+    
+    def decrypt(self, word: str, displacement: int) -> str:
+        """Return a decrypted word.
+
+        Args:
+            word (str): A word to be decrypted.
+            displacement (int): A positive integer number that represents
+                                the displacement that will be applied in the 
+                                alphabet.
+
+        Returns:
+            str: A decrypted word.
+        """
+        return self._calculate_word(word=word, displacement=displacement, decrypt_mode=True)
