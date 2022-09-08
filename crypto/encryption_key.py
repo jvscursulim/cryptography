@@ -1,3 +1,4 @@
+from __future__ import annotations
 import numpy as np
 
 class EncryptionKey:
@@ -5,10 +6,10 @@ class EncryptionKey:
     
     ALPHABET = "abcdefghijklmnopqrstuvwxyz"
     
-    def __init__(self) -> None:
+    def __init__(self) -> EncryptionKey:
         pass
     
-    def encrypt_or_decrypt(self, 
+    def _calculate_word(self, 
                            word: str, 
                            key: str, 
                            decrypt_mode: bool=False) -> str:
@@ -16,13 +17,15 @@ class EncryptionKey:
 
         Args:
             word (str): A word to be encrypted/decrypted.
-            key (str): The key to encrypt/decrypt.
+            key (str): The key that will be used to encrypt/decrypt.
             decrypt_mode (bool, optional): Puts the method on encryption mode. 
                                            Defaults to False.
 
         Returns:
             str: A encrypted/decrypted word.
         """
+        word = word.lower()
+        key = key.lower()
         sign = (-1)**(int(decrypt_mode))
         char_word_idx_array = np.array([self.ALPHABET.index(char) for char in word])
         if len(key) > len(word):
@@ -43,3 +46,27 @@ class EncryptionKey:
             new_word += self.ALPHABET[index]
         
         return new_word
+    
+    def encrypt(self, word: str, key: str) -> str:
+        """Return an encrypted word
+
+        Args:
+            word (str): A word to be encrypted.
+            key (str): The key that will be used to encrypt.
+
+        Returns:
+            str: A encrypted word.
+        """
+        return self._calculate_word(word=word, key=key)
+    
+    def decrypt(self, word: str, key: str) -> str:
+        """Return a decrypted word.
+
+        Args:
+            word (str): A word to be decrypted.
+            key (str): The key that will be used to decrypt.
+
+        Returns:
+            str: A decrypted word.
+        """
+        return self._calculate_word(word=word, key=key, decrypt_mode=True)
