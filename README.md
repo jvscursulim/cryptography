@@ -13,6 +13,8 @@ Implementations of some cryptographics methods
 
 ## Example
 
+### How to use
+
 ```python
 from crypto import CaesarCipher, EncryptionKey
 
