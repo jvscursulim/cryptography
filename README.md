@@ -6,7 +6,7 @@
 
 ## Description
 
-Implementations of some cryptographics methods
+Implementations of some basic cryptographics methods
 
 ## License
 
@@ -27,7 +27,7 @@ word_decrypted = caesar.decrypt(word="abc", displacement=3)
 enckey = EncryptionKey()
 
 word_encrypted2 = enckey.encrypt(word="physics", key="sun")
-word_decrypted2 = caesar.decrypt(word="hblkcpk", key="sun")
+word_decrypted2 = enckey.decrypt(word="hblkcpk", key="sun")
 ```
 
 ## References
